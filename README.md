@@ -30,13 +30,13 @@
 
 ## 安装方法
 
-见[插件下载安装教程](../tutorial.md)  
+将 `EveryoneWarp.lls.js` 扔到 BDS 插件目录即可  
 老旧的 LL 版本加载`EveryoneWarp.lls.js`报错的，可以使用`EveryoneWarp_OldLXL.lls.js`
 
 插件前置我已经上传到我自己的服务器，加载时即可**自动安装**  
-如遇安装失败请移步 [NavigationAPI](../NavigationAPI) 自行下载安装
+如遇安装失败请移步 [NavigationAPI](https://github.com/lgc-LLSEDev/NavigationAPI) 自行下载安装
 
-## 更新[`NavigationAPI`](../NavigationAPI)的方法
+## 更新[`NavigationAPI`](https://github.com/lgc-LLSEDev/NavigationAPI)的方法
 
 如果是自动下载的依赖，请删除`plugins/lib/NavigationAPI.lls.js`文件来更新！（旧版请删除`plugins/lib/NavigationAPI_OldLXL.lls.js`）
 
@@ -83,7 +83,7 @@ QQ：3076823485
 - 0.1.4
   - 修复显示的日期少了一个月的 bug
 - 0.2.0
-  - 将导航功能独立出一个前置插件[`NavigationAPI`](../NavigationAPI)
+  - 将导航功能独立出一个前置插件[`NavigationAPI`](https://github.com/lgc-LLSEDev/NavigationAPI)
     - 修复了在末地时显示坐标换算的 Bug
   - 加入了 Warp 的简介，创建时可以设置
   - Warp 创建时可以自定义坐标、维度了
@@ -93,6 +93,6 @@ QQ：3076823485
   - 现在无需停止导航即可建立另一个导航
   - **2022.7.28 更新**
     - 适配旧版 lxl
-    - [`NavigationAPI` Bug 修复](../NavigationAPI/README.md#更新日志)
+    - [`NavigationAPI` Bug 修复](https://github.com/lgc-LLSEDev/NavigationAPI)
 - 0.2.1
   - 修复天数显示错误
