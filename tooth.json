@@ -1,0 +1,22 @@
+{
+  "format_version": 1,
+  "tooth": "github.com/lgc-LLSEDev/NavigationAPI",
+  "version": "0.2.1",
+  "dependencies": {
+    "github.com/lgc-LLSEDev/NavigationAPI": [[">=0.1.2"]]
+  },
+  "information": {
+    "name": "EveryoneWarp",
+    "description": "玩家的公共传送点",
+    "author": "student_2333 <lgc2333@126.com>",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/lgc-LLSEDev/EveryoneWarp"
+  },
+  "placement": [
+    {
+      "source": "EveryoneWarp.lls.js",
+      "destination": "plugins/EveryoneWarp.js"
+    }
+  ],
+  "possession": ["plugins/EveryoneWarp/"]
+}
