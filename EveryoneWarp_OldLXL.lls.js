@@ -1,6 +1,6 @@
 /* global lxl mc JsonConfigFile Format logger */
 // LiteLoaderScript Dev Helper
-/// <reference path="E:\Coding\bds\.vscode\LLSEDevHelper/Library/JS/Api.js" />
+/// <reference path="../HelperLib/src/index.d.ts"/>
 
 const pluginName = 'EveryoneWarp';
 const confDir = `plugins/${pluginName}`;
