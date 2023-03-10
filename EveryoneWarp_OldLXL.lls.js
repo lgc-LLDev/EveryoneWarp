@@ -1,4 +1,4 @@
-/* global lxl mc JsonConfigFile Format logger */
+/* global lxl mc JsonConfigFile Format logger File */
 // LiteLoaderScript Dev Helper
 /// <reference path="../HelperLib/src/index.d.ts"/>
 

@@ -1,4 +1,4 @@
-/* global ll mc JsonConfigFile Format PermType logger */
+/* global ll mc JsonConfigFile Format PermType logger File */
 // LiteLoaderScript Dev Helper
 /// <reference path="../HelperLib/src/index.d.ts"/>
 
