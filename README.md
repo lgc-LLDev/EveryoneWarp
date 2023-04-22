@@ -17,14 +17,14 @@
 
 ### Pictures
 
-![0](https://raw.githubusercontent.com/lgc-LLSEDev/readme/main/EveryoneWarp/0.png)  
-![1](https://raw.githubusercontent.com/lgc-LLSEDev/readme/main/EveryoneWarp/1.png)  
-![2](https://raw.githubusercontent.com/lgc-LLSEDev/readme/main/EveryoneWarp/2.png)  
-![3](https://raw.githubusercontent.com/lgc-LLSEDev/readme/main/EveryoneWarp/3.png)  
-![7](https://raw.githubusercontent.com/lgc-LLSEDev/readme/main/EveryoneWarp/7.png)  
-![8](https://raw.githubusercontent.com/lgc-LLSEDev/readme/main/EveryoneWarp/8.png)  
-![5](https://raw.githubusercontent.com/lgc-LLSEDev/readme/main/EveryoneWarp/5.png)  
-![6](https://raw.githubusercontent.com/lgc-LLSEDev/readme/main/EveryoneWarp/6.png)
+![0](https://media.githubusercontent.com/media/lgc-LLSEDev/readme/main/EveryoneWarp/0.png)  
+![1](https://media.githubusercontent.com/media/lgc-LLSEDev/readme/main/EveryoneWarp/1.png)  
+![2](https://media.githubusercontent.com/media/lgc-LLSEDev/readme/main/EveryoneWarp/2.png)  
+![3](https://media.githubusercontent.com/media/lgc-LLSEDev/readme/main/EveryoneWarp/3.png)  
+![7](https://media.githubusercontent.com/media/lgc-LLSEDev/readme/main/EveryoneWarp/7.png)  
+![8](https://media.githubusercontent.com/media/lgc-LLSEDev/readme/main/EveryoneWarp/8.png)  
+![5](https://media.githubusercontent.com/media/lgc-LLSEDev/readme/main/EveryoneWarp/5.png)  
+![6](https://media.githubusercontent.com/media/lgc-LLSEDev/readme/main/EveryoneWarp/6.png)
 
 如果你想给这个插件提建议的话，欢迎在 github 提 issue！
 
