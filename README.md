@@ -17,28 +17,22 @@
 
 ### Pictures
 
-![0](https://raw.githubusercontent.com/lgc-LLSEDev/readme/main/EveryoneWarp/0.png)  
-![1](https://raw.githubusercontent.com/lgc-LLSEDev/readme/main/EveryoneWarp/1.png)  
-![2](https://raw.githubusercontent.com/lgc-LLSEDev/readme/main/EveryoneWarp/2.png)  
-![3](https://raw.githubusercontent.com/lgc-LLSEDev/readme/main/EveryoneWarp/3.png)  
-![7](https://raw.githubusercontent.com/lgc-LLSEDev/readme/main/EveryoneWarp/7.png)  
-![8](https://raw.githubusercontent.com/lgc-LLSEDev/readme/main/EveryoneWarp/8.png)  
-![5](https://raw.githubusercontent.com/lgc-LLSEDev/readme/main/EveryoneWarp/5.png)  
-![6](https://raw.githubusercontent.com/lgc-LLSEDev/readme/main/EveryoneWarp/6.png)
+![0](https://raw.githubusercontent.com/lgc-LLDev/readme/main/EveryoneWarp/0.png)  
+![1](https://raw.githubusercontent.com/lgc-LLDev/readme/main/EveryoneWarp/1.png)  
+![2](https://raw.githubusercontent.com/lgc-LLDev/readme/main/EveryoneWarp/2.png)  
+![3](https://raw.githubusercontent.com/lgc-LLDev/readme/main/EveryoneWarp/3.png)  
+![7](https://raw.githubusercontent.com/lgc-LLDev/readme/main/EveryoneWarp/7.png)  
+![8](https://raw.githubusercontent.com/lgc-LLDev/readme/main/EveryoneWarp/8.png)  
+![5](https://raw.githubusercontent.com/lgc-LLDev/readme/main/EveryoneWarp/5.png)  
+![6](https://raw.githubusercontent.com/lgc-LLDev/readme/main/EveryoneWarp/6.png)
 
 如果你想给这个插件提建议的话，欢迎在 github 提 issue！
 
 ## 安装方法
 
-将 `EveryoneWarp.lls.js` 扔到 BDS 插件目录即可  
-老旧的 LL 版本加载`EveryoneWarp.lls.js`报错的，可以使用`EveryoneWarp_OldLXL.lls.js`
-
-插件前置我已经上传到我自己的服务器，加载时即可**自动安装**  
-如遇安装失败请移步 [NavigationAPI](https://github.com/lgc-LLSEDev/NavigationAPI) 自行下载安装
-
-## 更新[`NavigationAPI`](https://github.com/lgc-LLSEDev/NavigationAPI)的方法
-
-如果是自动下载的依赖，请删除`plugins/lib/NavigationAPI.lls.js`文件来更新！（旧版请删除`plugins/lib/NavigationAPI_OldLXL.lls.js`）
+```bash
+lip install github.com/lgc-LLDev/EveryoneWarp
+```
 
 ## 配置文件
 
@@ -72,27 +66,38 @@ QQ：3076823485
 
 ## 更新日志
 
-- 0.1.1
-  - 修复玩家退服时候导航未关闭
-  - 修复`EveryoneWarp_OldLXL.lls.js`能同时启动两个导航
-- 0.1.2
-  - 修复指令权限
-- 0.1.3
-  - 修复错误的命名（`wrap`->`warp`）
-  - 导航加入地狱、主世界维度坐标换算
-- 0.1.4
-  - 修复显示的日期少了一个月的 bug
-- 0.2.0
-  - 将导航功能独立出一个前置插件[`NavigationAPI`](https://github.com/lgc-LLSEDev/NavigationAPI)
-    - 修复了在末地时显示坐标换算的 Bug
-  - 加入了 Warp 的简介，创建时可以设置
-  - Warp 创建时可以自定义坐标、维度了
-  - 更改部分提示文本
-  - 修复删除 Warp 时的某些 Bug
-  - Warp 详情界面加入删除按钮（只有该 Warp 的创建者和 OP 会显示）
-  - 现在无需停止导航即可建立另一个导航
-  - **2022.7.28 更新**
-    - 适配旧版 lxl
-    - [`NavigationAPI` Bug 修复](https://github.com/lgc-LLSEDev/NavigationAPI)
-- 0.2.1
-  - 修复天数显示错误
+### 0.2.1
+
+- 修复天数显示错误
+
+### 0.2.0
+
+- 将导航功能独立出一个前置插件[`NavigationAPI`](https://github.com/lgc-LLDev/NavigationAPI)
+  - 修复了在末地时显示坐标换算的 Bug
+- 加入了 Warp 的简介，创建时可以设置
+- Warp 创建时可以自定义坐标、维度了
+- 更改部分提示文本
+- 修复删除 Warp 时的某些 Bug
+- Warp 详情界面加入删除按钮（只有该 Warp 的创建者和 OP 会显示）
+- 现在无需停止导航即可建立另一个导航
+- **2022.7.28 更新**
+  - 适配旧版 lxl
+  - [`NavigationAPI` Bug 修复](https://github.com/lgc-LLDev/NavigationAPI)
+
+### 0.1.4
+
+- 修复显示的日期少了一个月的 bug
+
+### 0.1.3
+
+- 修复错误的命名（`wrap`->`warp`）
+- 导航加入地狱、主世界维度坐标换算
+
+### 0.1.2
+
+- 修复指令权限
+
+### 0.1.1
+
+- 修复玩家退服时候导航未关闭
+- 修复`EveryoneWarp_OldLXL.lls.js`能同时启动两个导航

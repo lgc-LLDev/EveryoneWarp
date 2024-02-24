@@ -1,4 +1,4 @@
-/* global ll mc JsonConfigFile Format PermType logger File */
+/* global ll mc JsonConfigFile Format PermType logger file */
 // LiteLoaderScript Dev Helper
 /// <reference path="../HelperLib/src/index.d.ts"/>
 
@@ -7,13 +7,9 @@ const confDir = `plugins/${pluginName}`;
 const confPath = `${confDir}/warps.json`;
 const warpConf = new JsonConfigFile(confPath);
 
-ll.require(
-  'NavigationAPI.lls.js',
-  'https://www.lgc2333.top/llse/NavigationAPI.min.lls.js'
-);
-const newNavigationTask = ll.import('NavAPI_newTask');
-const clearNavigationTask = ll.import('NavAPI_clearTask');
-const hasNavigationTask = ll.import('NavAPI_hasTask');
+const newNavigationTask = ll.imports('NavAPI_newTask');
+const clearNavigationTask = ll.imports('NavAPI_clearTask');
+const hasNavigationTask = ll.imports('NavAPI_hasTask');
 
 const {
   Red,
@@ -27,14 +23,47 @@ const {
   MinecoinGold,
 } = Format;
 
+/**
+ * @typedef {Object} FloatPosObject
+ * @property {number} x
+ * @property {number} y
+ * @property {number} z
+ * @property {number} dimId
+ */
+/**
+ * @typedef {Object} WarpPlayerData
+ * @property {string} name
+ * @property {string} realName
+ * @property {string} xuid
+ */
+/**
+ * @typedef {Object} WarpData
+ * @property {WarpPlayerData} player
+ * @property {FloatPosObject} pos
+ * @property {string} name
+ * @property {string} date
+ * @property {string?} desc
+ */
+
+/**
+ * @returns {WarpData[]}
+ */
 function getWarpConf() {
   return warpConf.get('warps', []);
 }
 
+/**
+ * @param {WarpData[]} conf
+ * @returns {boolean}
+ */
 function setWarpConf(conf) {
   return warpConf.set('warps', conf);
 }
 
+/**
+ * @param {FloatPosObject} pos
+ * @returns {string}
+ */
 function formatPos(pos) {
   const { x, y, z, dimId } = pos;
   const dim = (() => {
@@ -57,6 +86,10 @@ function formatPos(pos) {
   );
 }
 
+/**
+ * @param {Date} date
+ * @returns {string}
+ */
 function formatDate(date) {
   const yr = date.getFullYear();
   const mon = date.getMonth() + 1;
@@ -67,6 +100,13 @@ function formatDate(date) {
   return `${yr}-${mon}-${day} ${hr}:${min}:${sec}`;
 }
 
+/**
+ * @param {LLSE_Player} pl
+ * @param {FloatPosObject} pos
+ * @param {string} warpName
+ * @param {string?} desc
+ * @returns {WarpData}
+ */
 function getWarpObj(pl, pos, warpName, desc = null) {
   const { name, realName, xuid } = pl;
   return {
@@ -78,6 +118,11 @@ function getWarpObj(pl, pos, warpName, desc = null) {
   };
 }
 
+/**
+ * @param {LLSE_SimpleForm} form
+ * @param {WarpData[]} warps
+ * @returns {LLSE_SimpleForm}
+ */
 function addWarpButton(form, warps) {
   let formTmp = form;
   warps.forEach((i) => {
@@ -94,6 +139,9 @@ function addWarpButton(form, warps) {
   return formTmp;
 }
 
+/**
+ * @param {LLSE_Player} pl_
+ */
 function addWarp(pl_) {
   const {
     pos: { x: x_, y: y_, z: z_, dimid: dimId_ },
@@ -141,6 +189,11 @@ function addWarp(pl_) {
   });
 }
 
+/**
+ * @param {LLSE_Player} pl
+ * @param {string} tip
+ * @param {() => any} callback
+ */
 function confirmBox(pl, tip, callback) {
   pl.sendModalForm(
     '确认',
@@ -157,10 +210,19 @@ function confirmBox(pl, tip, callback) {
   );
 }
 
+/**
+ * @param {any} obj1
+ * @param {any} obj2
+ * @returns {boolean}
+ */
 function compareObject(obj1, obj2) {
   return JSON.stringify(obj1) === JSON.stringify(obj2);
 }
 
+/**
+ * @param {LLSE_Player} pl
+ * @param {WarpData} warpObj
+ */
 function deleteWarp(pl, warpObj) {
   const { name, pos } = warpObj;
   confirmBox(
@@ -185,14 +247,18 @@ function deleteWarp(pl, warpObj) {
   );
 }
 
+/**
+ * @param {LLSE_Player} pl_
+ */
 function deleteWarpForm(pl_) {
   const form = mc
     .newSimpleForm()
     .setTitle('删除Warp')
     .setContent('请选择你要删除的Warp');
+  /** @type {WarpData[]} */
   const playerWarps = [];
   getWarpConf().forEach((it) => {
-    if (it.player.xuid === pl_.xuid || it.player.permLevel > 0) {
+    if (it.player.xuid === pl_.xuid || pl_.permLevel > 0) {
       playerWarps.push(it);
     }
   });
@@ -204,7 +270,14 @@ function deleteWarpForm(pl_) {
   });
 }
 
+/**
+ * @param {LLSE_Player} pl
+ */
 function warpList(pl) {
+  /**
+   * @param {LLSE_Player} pl_
+   * @param {WarpData} warp
+   */
   function warpDetail(pl_, warp) {
     const {
       player: { name: playerName, xuid },
@@ -269,6 +342,9 @@ function warpList(pl) {
   });
 }
 
+/**
+ * @param {LLSE_Player} pl_
+ */
 function warpManage(pl_) {
   pl_.sendForm(
     mc
@@ -296,52 +372,54 @@ function warpManage(pl_) {
   );
 }
 
-(() => {
-  const cmd = mc.newCommand('warpmanage', '管理Warp', PermType.Any);
-  cmd.setAlias('warpm');
+mc.listen('onServerStarted', () => {
+  (() => {
+    const cmd = mc.newCommand('warpmanage', '管理Warp', PermType.Any);
+    cmd.setAlias('warpm');
 
-  cmd.setCallback((_, origin, out) => {
-    if (!origin.player) {
-      out.error('该命令只能由玩家执行');
-      return false;
-    }
-    warpManage(origin.player);
-    return true;
-  });
+    cmd.setCallback((_, origin, out) => {
+      if (!origin.player) {
+        out.error('该命令只能由玩家执行');
+        return false;
+      }
+      warpManage(origin.player);
+      return true;
+    });
 
-  cmd.overload();
-  cmd.setup();
-})();
+    cmd.overload();
+    cmd.setup();
+  })();
 
-(() => {
-  const cmd = mc.newCommand('warplist', '查看Warp', PermType.Any);
-  cmd.setAlias('warp');
+  (() => {
+    const cmd = mc.newCommand('warplist', '查看Warp', PermType.Any);
+    cmd.setAlias('warp');
 
-  cmd.setCallback((_, origin, out) => {
-    if (!origin.player) {
-      out.error('该命令只能由玩家执行');
-      return false;
-    }
-    warpList(origin.player);
-    return true;
-  });
+    cmd.setCallback((_, origin, out) => {
+      if (!origin.player) {
+        out.error('该命令只能由玩家执行');
+        return false;
+      }
+      warpList(origin.player);
+      return true;
+    });
 
-  cmd.overload();
-  cmd.setup();
-})();
+    cmd.overload();
+    cmd.setup();
+  })();
+});
 
 (() => {
   const oldConfDir = `plugins/EveryoneWrap`;
   const oldConfPath = `${oldConfDir}/warps.json`;
 
-  if (File.exists(oldConfPath)) {
+  if (file.exists(oldConfPath)) {
     setWarpConf(new JsonConfigFile(oldConfPath).get('wraps'));
-    File.rename(oldConfPath, `${confDir}/warps_old.json`);
+    file.rename(oldConfPath, `${confDir}/warps_old.json`);
     logger.info('旧的插件数据迁移完毕');
   }
 })();
 
-ll.registerPlugin(pluginName, '公共坐标点', [0, 2, 1], {
+ll.registerPlugin(pluginName, '公共坐标点', [0, 2, 2], {
   Author: 'student_2333',
   License: 'Apache-2.0',
 });

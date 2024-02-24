@@ -1,0 +1,13 @@
+{
+  "entry": "EveryoneWarp.js",
+  "name": "EveryoneWarp",
+  "type": "lse-quickjs",
+  "dependencies": [
+    {
+      "name": "legacy-script-engine-quickjs"
+    },
+    {
+      "name": "NavigationAPI"
+    }
+  ]
+}
